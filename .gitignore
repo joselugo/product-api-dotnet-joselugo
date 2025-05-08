@@ -1,0 +1,28 @@
+## Compilados y temporales de .NET
+bin/
+obj/
+*.user
+*.suo
+
+## Configuración de Visual Studio
+.vs/
+.vscode/
+
+## Archivos de base de datos locales
+*.db
+*.mdf
+*.ldf
+
+## Logs
+*.log
+
+## Docker
+docker-compose.override.yml
+
+## Otros temporales
+*.pid
+*.tmp
+*.bak
+
+## Publicaciones
+publish/
