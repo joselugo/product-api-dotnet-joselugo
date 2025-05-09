@@ -17,6 +17,10 @@ namespace ProductApi.Controllers
             _service = service;
         }
 
+        // <summary>
+        /// Obtiene la lista de productos disponibles.
+        /// </summary>
+        /// <returns>Lista de productos.</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> GetProducts()
         {
@@ -24,6 +28,11 @@ namespace ProductApi.Controllers
             return Ok(products);
         }
 
+        /// <summary>
+        /// Obtiene un producto específico por su ID.
+        /// </summary>
+        /// <param name="id">Identificador del producto.</param>
+        /// <returns>El producto solicitado o un error 404 si no se encuentra.</returns>
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
@@ -34,6 +43,11 @@ namespace ProductApi.Controllers
             return Ok(product);
         }
 
+        /// <summary>
+        /// Crea un nuevo producto en la base de datos.
+        /// </summary>
+        /// <param name="dto">Datos del producto a crear.</param>
+        /// <returns>El producto creado.</returns>
         [HttpPost]
         public async Task<ActionResult<Product>> CreateProduct([FromBody] ProductDto dto)
         {
@@ -41,6 +55,12 @@ namespace ProductApi.Controllers
             return CreatedAtAction(nameof(GetProduct), new { id = product.Id }, product);
         }
 
+        /// <summary>
+        /// Actualiza un producto existente.
+        /// </summary>
+        /// <param name="id">Identificador del producto a actualizar.</param>
+        /// <param name="dto">Nuevos datos del producto.</param>
+        /// <returns>Código 204 si se actualiza correctamente, o 404 si no se encuentra.</returns>
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateProduct(int id, [FromBody] ProductDto dto)
         {
@@ -51,6 +71,11 @@ namespace ProductApi.Controllers
             return NoContent();
         }
 
+        /// <summary>
+        /// Elimina un producto por su ID.
+        /// </summary>
+        /// <param name="id">Identificador del producto a eliminar.</param>
+        /// <returns>Código 204 si se elimina correctamente, o 404 si no se encuentra.</returns>
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
