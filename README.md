@@ -27,14 +27,14 @@ API RESTful desarrollada en ASP.NET Core para la gestión de productos, con oper
 
 ## 📦 Estructura del Proyecto
 
-/Controllers
-/Services
-/Models
-/DTOs
-/Data
-/Migrations
-/Dockerfile
-/docker-compose.yml
+- /Controllers
+- /Services
+- /Models
+- /DTOs
+- /Data
+- /Migrations
+- /Dockerfile
+- /docker-compose.yml
 
 
 ---
@@ -54,5 +54,10 @@ API RESTful desarrollada en ASP.NET Core para la gestión de productos, con oper
 git clone https://github.com/joselugo/product-api-dotnet-joselugo.git
 cd product-api-dotnet-joselugo
 
+---
+### Levantar contenedores con Docker Compose
+docker compose up --build
+
+---
 ### 🗄️ Ejecutar Migraciones
 - desde la terminal: dotnet ef database update
