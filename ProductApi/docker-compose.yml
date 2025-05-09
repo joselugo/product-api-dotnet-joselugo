@@ -1,0 +1,21 @@
+version: '3.4'
+
+services:
+  api:
+    build: .
+    ports:
+      - "5000:8080"
+    depends_on:
+      - sqlserver
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=ProductDB;User Id=sa;Password=SqlServer2025!;TrustServerCertificate=True;
+
+  sqlserver:
+    image: "mcr.microsoft.com/mssql/server:2019-latest"
+    container_name: sqlserver
+    ports:
+      - "1433:1433"
+    environment:
+      SA_PASSWORD: "SqlServer2025!"
+      ACCEPT_EULA: "Y"
